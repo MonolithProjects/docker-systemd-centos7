@@ -1,6 +1,6 @@
 # CentOS7 Ansible Test Image
 
-<img src="https://img.shields.io/docker/automated/monolitpprojects/docker-systemd-centos7?logo=docker&logoColor=white"/> <img src="https://img.shields.io/docker/pulls/monolithprojects/docker-systemd-centos7?logo=docker&logoColor=white"/>
+<img src="https://img.shields.io/docker/automated/monolitpprojects/systemd-centos7?logo=docker&logoColor=white"/> <img src="https://img.shields.io/docker/pulls/monolithprojects/systemd-centos7?logo=docker&logoColor=white"/>
 <a href="https://github.com/MonolithProjects/docker-systemd-centos7/actions"><img src="https://github.com/MonolithProjects/docker-systemd-centos7/workflows/Build%20and%20Push/badge.svg?branch=master"/></a>
 
 CentOS7 docker image (based on actual base image version). I am using it with Molecule for Ansible role testing.
