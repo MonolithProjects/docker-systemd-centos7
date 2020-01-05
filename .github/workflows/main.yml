@@ -20,5 +20,5 @@ jobs:
             uses: brpaz/hadolint-action@master
           - name: build
             uses: buildtool/build-action@v1
-            env:
-              GITHUB_TOKEN: ${{ secrets.TOKEN }}
+            with:
+              docker-build-args: '-skiplogin'
