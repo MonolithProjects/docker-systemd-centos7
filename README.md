@@ -3,6 +3,7 @@
 <a href="https://github.com/MonolithProjects/docker-systemd-centos7/actions"><img src="https://github.com/MonolithProjects/docker-systemd-centos7/workflows/Build%20and%20Push/badge.svg?branch=master"/></a>
 <a href="https://hub.docker.com/repository/docker/monolithprojects/systemd-centos7"><img src="https://img.shields.io/microbadger/image-size/monolithprojects/systemd-centos7"/></a>
 <a href="https://hub.docker.com/repository/docker/monolithprojects/systemd-centos7"><img src="https://img.shields.io/docker/pulls/monolithprojects/systemd-centos7"/></a>
+<a href="https://hub.docker.com/repository/docker/monolithprojects/systemd-centos7"><img src="https://img.shields.io/docker/automated/monolithprojects/systemd-centos7?logo=docker&logoColor=white"/></a>
 
 CentOS7 docker image (based on actual base image version). I am using it with Molecule for Ansible role testing.
 
