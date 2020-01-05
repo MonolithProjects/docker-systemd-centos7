@@ -9,7 +9,7 @@ CentOS7 docker image (based on actual base image version). I am using it with Mo
 
 ## Tags
 
-  - `latest`: Latest version of Ansible ready image
+  - `latest`: Latest version of the image
 
 
 ## How-to
