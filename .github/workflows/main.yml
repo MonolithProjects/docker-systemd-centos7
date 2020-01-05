@@ -16,4 +16,4 @@ jobs:
           - name: hadolint
             uses: brpaz/hadolint-action@master
           - name: build
-            run: docker build -no-cache .
+            run: docker build --no-cache .
