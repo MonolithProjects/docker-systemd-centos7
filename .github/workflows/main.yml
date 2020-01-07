@@ -5,14 +5,16 @@ on:
         branches:
             - master
             - develop
-            - '7.*'
+            - 'feature/*'
+        tags:
+            - ^[0-9]+.*
     schedule:
         - cron: '0 4 * * 0'
 
 jobs:
-    build_latest:
+    build:
         runs-on: ubuntu-latest
-        if: "! contains(github.event.head_commit.message, '[skip-ci]') || ! contains(github.ref, '7.*')"
+        if: "contains(github.ref, 'master') || contains(github.ref, 'develop') || contains(github.ref, 'feature/*')"
         steps:
           - name: checkout
             uses: actions/checkout@v2
@@ -22,17 +24,15 @@ jobs:
             run: docker build --no-cache .
     build_version:
         runs-on: ubuntu-latest
-        if: "! contains(github.event.head_commit.message, '[skip-ci]') || contains(github.ref, '7.*')"
+        if: "contains(github.ref, '^[0-9]+.*')"
         steps:
-          - name: checkout
-            uses: actions/checkout@v2
-          - name: hadolint
-            uses: brpaz/hadolint-action@master
-          - name: build
+          # - name: checkout
+          #   uses: actions/checkout@v2
+          - name: publish
             uses: mr-smithers-excellent/docker-build-push@v1.0
             with:
               image: monolithprojects/systemd-centos7
-              tag: ${{ GITHUB_REF }}
+              tag: ${{ github.ref }}
               registry: docker.io
               dockerfile: Dockerfile
               username: monolithprojects
