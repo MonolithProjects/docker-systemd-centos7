@@ -5,16 +5,17 @@
 <a href="https://hub.docker.com/repository/docker/monolithprojects/systemd-centos7"><img src="https://img.shields.io/docker/pulls/monolithprojects/systemd-centos7"/></a>
 <a href="https://hub.docker.com/repository/docker/monolithprojects/systemd-centos7"><img src="https://img.shields.io/docker/cloud/automated/monolithprojects/systemd-centos7?maxAge=2592000"/></a>
 
-CentOS7 docker image (based on actual base image version). I am using it with Molecule for Ansible role testing.
+CentOS7 docker image. I am using it with Molecule for Ansible role testing.
 
 ## Tags
 
   - `latest`: Latest version of the image
+  - `7.7.1908`: CentOS7.7.1908
 
 
 ## How-to
 
-  1. Run command `docker pull monolithprojects/systemd-centos7:latest`  
+  1. Run command `docker pull monolithprojects/systemd-centos7:<tag>`  
   2. Run a container from the image: `docker run --detach --privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro monolithprojects/systemd-centos7:latest`  
 
 ## License
