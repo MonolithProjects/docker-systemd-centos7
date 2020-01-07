@@ -5,13 +5,15 @@ on:
         branches:
             - master
             - develop
+            - '7.*'
     schedule:
         - cron: '0 4 * * 0'
 
 jobs:
-    build:
+    build_latest:
         runs-on: ubuntu-latest
-        if: "! contains(github.event.head_commit.message, '[skip-ci]')"
+        if: ! contains(github.event.head_commit.message, '[skip-ci]')
+        if: ! contains(github.ref, '7.*')""
         steps:
           - name: checkout
             uses: actions/checkout@v2
@@ -19,3 +21,21 @@ jobs:
             uses: brpaz/hadolint-action@master
           - name: build
             run: docker build --no-cache .
+    build_latest:
+        runs-on: ubuntu-latest
+        if: ! contains(github.event.head_commit.message, '[skip-ci]')
+        if: contains(github.ref, '7.*')
+        steps:
+          - name: checkout
+            uses: actions/checkout@v2
+          - name: hadolint
+            uses: brpaz/hadolint-action@master
+          - name: build
+            uses: mr-smithers-excellent/docker-build-push@v1.0
+            with:
+              image: monolithprojects/systemd-centos7
+              tag: ${{ GITHUB_REF }}
+              registry: docker.io
+              dockerfile: Dockerfile
+              username: monolithprojects
+              password: ${{ secrets.DOCKER_TOKEN }}
