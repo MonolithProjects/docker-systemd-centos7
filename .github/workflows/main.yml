@@ -14,7 +14,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        if: github.ref == 'master' || github.ref == 'develop' || contains(github.ref, 'feature')
+        if: github.ref == 'master' || github.ref == 'develop' || contains(github.ref, 'feature/')
         steps:
           - name: checkout
             uses: actions/checkout@v2
@@ -22,18 +22,19 @@ jobs:
             uses: brpaz/hadolint-action@master
           - name: build
             run: docker build --no-cache .
-    # build_version:
-    #     runs-on: ubuntu-latest
-    #     if: "contains(github.ref, '^[0-9]+.*')"
-    #     steps:
-    #       - name: checkout
-    #         uses: actions/checkout@v2
-    #       - name: publish
-    #         uses: mr-smithers-excellent/docker-build-push@v1.0
-    #         with:
-    #           image: monolithprojects/systemd-centos7
-    #           tag: ${{ github.ref }}
-    #           registry: docker.io
-    #           dockerfile: Dockerfile
-    #           username: monolithprojects
-    #           password: ${{ secrets.DOCKER_TOKEN }}
+    version_tag:
+        runs-on: ubuntu-latest
+        # Run if tagged
+        if: "! contains(github.ref, 'feature/') && contains(github.ref, '^[0-9]+.*')"
+        steps:
+          - name: checkout
+            uses: actions/checkout@v2
+          - name: publish
+            uses: mr-smithers-excellent/docker-build-push@v1.0
+            with:
+              image: monolithprojects/systemd-centos7
+              tag: ${{ github.ref }}
+              registry: docker.io
+              dockerfile: Dockerfile
+              username: monolithprojects
+              password: ${{ secrets.DOCKER_TOKEN }}
