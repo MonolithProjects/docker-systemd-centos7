@@ -6,8 +6,8 @@ on:
             - master
             - develop
             - 'feature/*'
-        # tags:
-        #     - '^[0-9]+.*'
+        tags:
+            - '[0-9]+.*'
     schedule:
         - cron: '0 4 * * 0'
 
