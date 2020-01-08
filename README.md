@@ -5,7 +5,7 @@
 <a href="https://hub.docker.com/repository/docker/monolithprojects/systemd-centos7"><img src="https://img.shields.io/docker/pulls/monolithprojects/systemd-centos7"/></a>
 <a href="https://hub.docker.com/repository/docker/monolithprojects/systemd-centos7"><img src="https://img.shields.io/docker/cloud/automated/monolithprojects/systemd-centos7?maxAge=2592000"/></a>
 
-CentOS7 docker image. I am using it with Molecule for Ansible role testing.
+CentOS7 docker image with enabled systemd. I am using it with Molecule for Ansible role testing.
 
 ## Tags
 
