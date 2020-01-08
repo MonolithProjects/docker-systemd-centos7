@@ -10,7 +10,8 @@ CentOS7 docker image. I am using it with Molecule for Ansible role testing.
 ## Tags
 
   - `latest`: Latest version of the image
-  - `7.7.1908`: CentOS7.7.1908
+  - `7.7.1908`: CentOS 7.7.1908
+  - `7.6.1810`: CentOS 7.6.1810
 
 
 ## How-to
