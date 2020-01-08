@@ -25,7 +25,7 @@ jobs:
           - name: publish
             uses: mr-smithers-excellent/docker-build-push@v1.0
             # Run if tagged
-            if: "contains(github.ref, '[0-9]+.*')"
+            if: "! contains(github.ref, 'feature/') && contains(github.ref, '[0-9]+.*')"
             with:
               image: monolithprojects/systemd-centos7
               tag: ${{ github.ref }}
