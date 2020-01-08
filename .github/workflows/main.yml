@@ -20,14 +20,3 @@ jobs:
             uses: brpaz/hadolint-action@master
           - name: build
             run: docker build --no-cache .
-          - name: publish
-            uses: mr-smithers-excellent/docker-build-push@v1.0
-            # Run if tagged
-            if: "! contains(github.ref, 'feature/') && contains(github.ref, '[0-9]+.*')"
-            with:
-              image: monolithprojects/systemd-centos7
-              tag: ${{ github.ref }}
-              registry: docker.io
-              dockerfile: Dockerfile
-              username: monolithprojects
-              password: ${{ secrets.DOCKER_TOKEN }}
