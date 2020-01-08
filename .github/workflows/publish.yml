@@ -8,7 +8,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        if: github.ref == 'master' || github.ref == 'develop' || contains(github.ref, 'feature/')
+        # if: github.ref == 'master' || github.ref == 'develop' || contains(github.ref, 'feature/')
         steps:
           - name: checkout
             uses: actions/checkout@v2
