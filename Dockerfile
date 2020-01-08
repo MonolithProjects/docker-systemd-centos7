@@ -1,4 +1,4 @@
-FROM centos:centos7.7.1908
+FROM centos:7
 LABEL maintainer="Michal Muransky"
 WORKDIR /lib/systemd/system/sysinit.target.wants/
 ENV container=docker
