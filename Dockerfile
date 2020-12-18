@@ -18,7 +18,6 @@ RUN for i in * ; do [ "$i" = systemd-tmpfiles-setup.service ] || rm -f "$i" ; do
     rm -f /lib/systemd/system/anaconda.target.wants/*
 
 RUN yum makecache fast \
- && yum -y update \
  && yum -y install \
 			initscripts \
 			deltarpm \
