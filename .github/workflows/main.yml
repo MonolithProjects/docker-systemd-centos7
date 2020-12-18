@@ -6,8 +6,6 @@ on:
             - master
             - develop
             - feature/*
-    schedule:
-        - cron: '0 4 * * 0'
 
 jobs:
     build:
